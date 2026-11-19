@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#000000">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Public traffic stats for Cislunar Atlas.">
+<link rel="canonical" href="https://iggym.github.io/cislunar-content/stats.html">
+<title>Site stats — Cislunar Atlas</title>
+<style>
+:root{color-scheme:dark;--black:#000;--panel:#101113;--line:#282a2e;--muted:#a4a9b1;--faint:#777e87;--white:#f5f5f2;--orange:#ff4f00;--orange-text:#ff824b;--green:#00ff66;--cyan:#00e5ff;--mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;--max:1440px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#08090a;color:var(--white);font-family:Inter,Arial,sans-serif;line-height:1.5}
+a{color:inherit;text-decoration:none}a:hover{color:#fff}h1,h2,p{margin:0}
+button:focus-visible,a:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}
+.shell{width:min(calc(100% - 32px),var(--max));margin-inline:auto}
+.mono{font:600 11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.skip{position:absolute;left:16px;top:-100px;background:var(--white);color:#000;padding:10px;z-index:10}.skip:focus{top:12px}
+.top{border-bottom:1px solid #212225;background:#08090a}
+.top .shell{min-height:66px;display:flex;align-items:center;gap:22px;justify-content:space-between;flex-wrap:wrap}
+.brand{display:inline-flex;align-items:center;gap:11px;font-size:14px;font-weight:800;letter-spacing:.02em;white-space:nowrap}
+.mark{display:grid;place-items:center;width:34px;height:34px;background:var(--orange);color:#170700;border-radius:7px}
+.mark svg{width:23px;height:23px}
+.nav{display:flex;align-items:center;gap:25px;color:var(--muted);font-size:13px}
+.nav a{padding:12px 0}.nav a:hover,.nav a[aria-current]{color:#fff}
+.nav a[aria-current]{box-shadow:inset 0 -2px var(--orange)}
+main.shell{padding:36px 0 64px}
+.kicker{color:var(--orange-text);display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.kicker::before{content:"";width:20px;height:1px;background:var(--orange)}
+h1{font-size:clamp(36px,6vw,72px);line-height:.95;letter-spacing:-.06em;font-weight:850}
+.lede{margin:14px 0 22px;color:var(--muted);max-width:36em}
+.range-bar{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 22px}
+.range-bar a{display:inline-block;padding:6px 12px;border:1px solid var(--line);border-radius:6px;color:var(--muted);font:600 11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.range-bar a.on,.range-bar a:hover{background:var(--orange);color:#170700;border-color:var(--orange)}
+.kpi{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 22px}
+.kpi div{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 18px;min-width:140px}
+.kpi b{display:block;font-size:28px;letter-spacing:-.03em}
+.kpi span{color:var(--faint);font:600 11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.panel{border:1px solid var(--line);border-radius:12px;background:#121316;padding:14px 16px;margin:0 0 16px;overflow:auto}
+.panel h2{font-size:13px;font-weight:750;margin:0 0 8px;color:#cfd3d8}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+table{width:100%;border-collapse:collapse}th,td{padding:6px 4px;border-bottom:1px solid #22242a;text-align:left;font-size:13px;word-break:break-word}
+th{color:var(--faint);font:600 11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.num{text-align:right;white-space:nowrap}
+.empty{color:var(--muted);padding:8px 0 24px}
+.err{color:#ff7a7a}
+.spark{width:100%;max-width:900px;height:auto;display:block}
+.spark rect{fill:var(--orange)}
+.spark text{fill:var(--faint);font-size:11px}
+footer{margin-top:40px;border-top:1px solid #2b2c30;padding:19px 0;color:#a2a8b1;font-size:12px}
+footer .shell{display:flex;gap:10px 22px;justify-content:space-between;flex-wrap:wrap}
+footer a{color:#dbdfe4}
+@media(min-width:650px){.shell{width:min(calc(100% - 54px),var(--max))}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to stats</a>
+<header class="top" id="top">
+  <div class="shell">
+    <a class="brand" href="./">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><ellipse cx="11" cy="12" rx="11" ry="3.9" transform="rotate(-35 11 12)" stroke="currentColor" stroke-width="1.45"/><circle cx="19.1" cy="6.3" r="2" fill="currentColor"/></svg></span>
+      Cislunar Atlas
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="./">Atlas</a>
+      <a href="stats.html" aria-current="page">Stats</a>
+    </nav>
+  </div>
+</header>
+<main class="shell" id="main">
+  <p class="kicker mono">Traffic</p>
+  <h1>Site stats</h1>
+  <p class="lede">Page views and visits for this atlas, from Cloudflare Web Analytics.</p>
+  <div class="range-bar" id="ranges" aria-label="Date range"></div>
+  <p class="empty" id="status">Loading…</p>
+  <div id="dashboard" hidden>
+    <div class="kpi">
+      <div><b id="k-views">0</b><span>Page views</span></div>
+      <div><b id="k-visits">0</b><span>Visits</span></div>
+    </div>
+    <section class="panel">
+      <h2>Daily page views</h2>
+      <div id="chart"></div>
+    </section>
+    <div class="grid">
+      <section class="panel">
+        <h2>Top pages</h2>
+        <table><thead><tr><th>Page</th><th class="num">Views</th></tr></thead><tbody id="pages-body"></tbody></table>
+      </section>
+      <section class="panel">
+        <h2>Referrers</h2>
+        <table><thead><tr><th>Referrer</th><th class="num">Views</th></tr></thead><tbody id="refs-body"></tbody></table>
+      </section>
+      <section class="panel">
+        <h2>Countries</h2>
+        <table><thead><tr><th>Country</th><th class="num">Views</th></tr></thead><tbody id="countries-body"></tbody></table>
+      </section>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="shell">
+    <span>Independent educational atlas · public traffic totals only</span>
+    <span><a href="./">Back to atlas ↑</a></span>
+  </div>
+</footer>
+<script>
+
+const API = "https://cislunar-stats.iggy-mw.workers.dev/api/stats";
+const SITE = "cislunar-content";
+const ranges = [
+  [1, "24h"],
+  [7, "7 days"],
+  [30, "30 days"],
+  [90, "90 days"]
+];
+const $ = (id) => document.getElementById(id);
+const fmt = (n) => Number(n || 0).toLocaleString("en-US");
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({
+  "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+}[c]));
+
+function bars(days) {
+  if (!days.length) return "";
+  const max = Math.max(...days.map((d) => d.pageviews), 1);
+  const w = 720, h = 120, bw = w / days.length;
+  const rects = days.map((d, i) => {
+    const bh = Math.max(1, (d.pageviews / max) * h);
+    return `<rect x="${(i * bw + 1).toFixed(2)}" y="${(h - bh).toFixed(2)}" width="${Math.max(1, bw - 2).toFixed(2)}" height="${bh.toFixed(2)}"><title>${esc(d.date)}: ${fmt(d.pageviews)} page views</title></rect>`;
+  }).join("");
+  return `<svg viewBox="0 0 ${w} ${h + 18}" class="spark" role="img" aria-label="Daily page views">${rects}<text x="0" y="${h + 14}">${esc(days[0].date)}</text><text x="${w}" y="${h + 14}" text-anchor="end">${esc(days[days.length - 1].date)}</text></svg>`;
+}
+
+function rows(items, nameFn) {
+  if (!items.length) return `<tr><td colspan="2" class="muted">None in this range</td></tr>`;
+  return items.map((item) => `<tr><td>${esc(nameFn(item))}</td><td class="num">${fmt(item.pageviews)}</td></tr>`).join("");
+}
+
+async function load(days) {
+  const status = $("status");
+  const dash = $("dashboard");
+  status.hidden = false;
+  status.className = "empty";
+  status.textContent = "Loading…";
+  dash.hidden = true;
+  document.querySelectorAll(".range-bar a").forEach((a) => {
+    a.classList.toggle("on", Number(a.dataset.days) === days);
+  });
+  try {
+    const r = await fetch(`${API}?site=${encodeURIComponent(SITE)}&days=${days}`);
+    if (!r.ok) throw new Error("bad status");
+    const data = await r.json();
+    const empty = !data.pageviews && !data.visits;
+    if (empty) {
+      status.textContent = "No visits recorded yet; data appears a few minutes after the first visits";
+      $("k-views").textContent = "0";
+      $("k-visits").textContent = "0";
+      $("chart").innerHTML = "";
+      $("pages-body").innerHTML = rows([], () => "");
+      $("refs-body").innerHTML = rows([], () => "");
+      $("countries-body").innerHTML = rows([], () => "");
+      return;
+    }
+    status.hidden = true;
+    dash.hidden = false;
+    $("k-views").textContent = fmt(data.pageviews);
+    $("k-visits").textContent = fmt(data.visits);
+    $("chart").innerHTML = bars(data.daily || []);
+    $("pages-body").innerHTML = rows(data.pages || [], (x) => x.path || "/");
+    $("refs-body").innerHTML = rows(data.referrers || [], (x) => x.referrer || "(direct / none)");
+    $("countries-body").innerHTML = rows(data.countries || [], (x) => x.country || "?");
+  } catch {
+    status.className = "empty err";
+    status.textContent = "Stats could not be loaded. Try again in a moment.";
+  }
+}
+
+$("ranges").innerHTML = ranges.map(([d, label]) =>
+  `<a href="?days=${d}" data-days="${d}">${label}</a>`
+).join("");
+$("ranges").addEventListener("click", (ev) => {
+  const a = ev.target.closest("a");
+  if (!a) return;
+  ev.preventDefault();
+  const days = Number(a.dataset.days);
+  const u = new URL(location.href);
+  u.searchParams.set("days", String(days));
+  history.replaceState(null, "", u);
+  load(days);
+});
+const initial = [1, 7, 30, 90].includes(Number(new URL(location.href).searchParams.get("days")))
+  ? Number(new URL(location.href).searchParams.get("days"))
+  : 7;
+load(initial);
+
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"bc1c0bc20ae642aaaed526b3de055796"}'></script>
+</body>
+</html>
