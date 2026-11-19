@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#000000">
 <meta name="description" content="Explore the missions, companies, infrastructure and emerging markets between Earth and the Moon.">
+<link rel="canonical" href="https://iggym.github.io/cislunar-content/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cislunar Atlas">
+<meta property="og:title" content="Cislunar Atlas — Earth–Moon field notes">
+<meta property="og:description" content="Explore the science, technology, people, markets, and politics shaping access to the Moon.">
+<meta property="og:url" content="https://iggym.github.io/cislunar-content/">
+<meta property="og:image" content="https://images-assets.nasa.gov/image/art002e009285/art002e009285~large.jpg">
+<meta property="og:image:alt" content="Crescent Earth beyond the lunar limb, photographed on NASA’s Artemis II mission">
+<meta name="twitter:card" content="summary_large_image">
 <title>Cislunar Economy — Earth–Moon Infrastructure Atlas</title>
 <style>
 :root{color-scheme:dark;--black:#000;--panel:#101113;--surface:#111214;--line:#282a2e;--muted:#a4a9b1;--faint:#777e87;--white:#f5f5f2;--orange:#ff4f00;--orange-text:#ff824b;--green:#00ff66;--cyan:#00e5ff;--mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;--max:1440px}
@@ -455,6 +464,121 @@ dialog{border:1px solid #3a3d43;border-radius:15px 15px 0 0;background:#131417;c
 .drawer-art .media-caption a { color: inherit }
 .data-list div { grid-template-columns: 109px minmax(0, 1fr) }
 .data-list dt { overflow-wrap: anywhere }
+/* Field notes and quote sharing */
+.field-notes { margin-top: clamp(38px, 6vw, 78px); scroll-margin-top: 15px }
+.field-notes .section-head { align-items: end }
+.field-notes .section-head > p { max-width: 43ch; color: var(--muted); font-size: 14px }
+.field-jump { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 13px }
+.field-jump a {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 6px 11px;
+  border: 1px solid #383a40;
+  border-radius: 6px;
+  background: #151619;
+  color: #d7d9dd;
+  font-size: 12px;
+  font-weight: 750;
+  text-decoration: none;
+}
+.field-jump a:hover { color: #fff; background: #252221; border-color: #83513b }
+.field-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 13px }
+.field-topic {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  background: #111214;
+  scroll-margin-top: 15px;
+}
+.field-media {
+  position: relative;
+  isolation: isolate;
+  min-height: 168px;
+  aspect-ratio: 2.7 / 1;
+  overflow: hidden;
+  color: #fff;
+  background: #07090d;
+}
+.field-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2 }
+.field-media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, #06080cf5 1%, #06080c8a 42%, #06080c16 78%), linear-gradient(90deg, #0406098c, transparent 73%);
+  pointer-events: none;
+  z-index: -1;
+}
+.field-metric { position: absolute; left: 14px; bottom: 15px; right: 14px; pointer-events: none }
+.field-metric strong { display: block; font-size: clamp(35px, 5.2vw, 71px); font-weight: 850; line-height: .93; letter-spacing: -.075em }
+.field-metric span { color: #e3e5e8; display: block; margin-top: 8px; max-width: 36ch; font-size: 11px; line-height: 1.35 }
+.field-media .media-caption { font-size: 8px; bottom: auto; top: 8px }
+.field-media figcaption a { color: inherit; text-underline-offset: 2px }
+.field-content { padding: 14px 14px 0 }
+.field-content h3 { font-size: clamp(27px, 3vw, 42px); line-height: 1.06; letter-spacing: -.055em; margin-bottom: 7px }
+.field-content > p { color: #d0d3d7; font-size: 14px }
+.field-findings { margin: 12px 0 0; padding: 0; list-style: none }
+.field-findings li { padding: 10px 0; border-top: 1px solid #2d2f35 }
+.field-findings h4 { margin: 0 0 3px; color: #f0f1f2; font-size: 14px }
+.field-findings p { color: #b6bdc6; font-size: 13px }
+.field-references { display: flex; gap: 3px 10px; flex-wrap: wrap; margin-top: 4px }
+.field-references a { color: #ffb696; font-size: 11px; text-underline-offset: 3px }
+.field-references .icon { display:inline-block; width: 11px; height: 11px; vertical-align: middle; margin-left: 2px }
+.field-quote {
+  margin: auto 14px 14px;
+  padding: 11px 12px 9px;
+  background: #251911;
+  border: 1px solid #573b2b;
+  border-left: 2px solid var(--orange);
+  border-radius: 7px;
+  color: #fff4ec;
+  scroll-margin: 15px 0;
+}
+.field-quote .mono { color: #ffc3a3; font-size: 9px }
+.field-quote blockquote {
+  margin: 6px 0 9px;
+  font-size: clamp(18px, 2vw, 26px);
+  line-height: 1.19;
+  letter-spacing: -.042em;
+  font-weight: 750;
+  min-height: 3.57em;
+}
+.field-quote-actions { display: flex; align-items: center; justify-content: space-between; gap: 7px; flex-wrap: wrap }
+.field-quote-actions button { min-height: 40px }
+.quote-next { color: #f3d9c9; display: inline-flex; align-items: center; gap: 6px; padding: 5px 3px; font-size: 11px; font-weight: 750 }
+.quote-next .icon { width: 13px; height: 13px }
+.share-dialog .drawer-body h2 { font-size: clamp(24px, 4vw, 38px) }
+.share-dialog .drawer-body blockquote {
+  margin: 12px 0;
+  padding: 10px 12px;
+  background: #211913;
+  border-left: 2px solid var(--orange);
+  border-radius: 3px;
+  color: #fff4ec;
+  font-size: 18px;
+  font-weight: 750;
+}
+.share-platforms { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; margin: 10px 0 }
+.share-platforms .market-action { justify-content: space-between }
+.share-platforms a { color: var(--white); text-decoration: none }
+.share-dialog .share-instructions { font-size: 12px; color: #b9bec6 }
+.share-dialog .share-tools { display: flex; gap: 7px; margin-top: 14px; flex-wrap: wrap }
+.share-feedback { min-height: 20px; margin-top: 8px }
+.share-copy-text { display: block; width: 100%; min-height: 96px; resize: vertical; background: #242527; color: #fff; padding: 8px; border: 1px solid #6d7078; border-radius: 5px; font: inherit; font-size: 12px }
+@media (max-width: 649px) {
+  .field-notes .section-head { display: block }
+  .field-notes .section-head > p { margin-top: 8px }
+}
+@media (min-width: 760px) {
+  .field-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 14px; row-gap: 17px }
+  .field-content { padding: 17px 17px 0 }
+  .field-metric { left: 17px; bottom: 16px }
+  .field-quote { margin: auto 17px 17px; padding: 12px 13px 10px }
+  .share-dialog { width: min(490px, calc(100% - 40px)) }
+}
 </style>
 </head>
 <body>
@@ -467,6 +591,7 @@ dialog{border:1px solid #3a3d43;border-radius:15px 15px 0 0;background:#131417;c
     </a>
     <nav class="nav" aria-label="Main navigation">
       <a href="#market">Market outlook</a>
+      <a href="#field-notes">Field notes</a>
       <a href="#orbital-map">Orbital map</a>
       <a href="#atlas" data-nav="players">Catalog</a>
       <a href="#atlas" data-nav="timeline">Roadmap</a>
@@ -484,6 +609,7 @@ dialog{border:1px solid #3a3d43;border-radius:15px 15px 0 0;background:#131417;c
       <div class="opening-actions">
         <a class="market-action primary" href="#market">Model the market <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
         <a class="market-action" href="#orbital-map">Explore the orbits</a>
+        <a class="market-action" href="#field-notes">Read field notes</a>
       </div>
     </div>
     <span class="art-caption mono">Lunar logistics site · Concept illustration</span>
@@ -681,6 +807,14 @@ dialog{border:1px solid #3a3d43;border-radius:15px 15px 0 0;background:#131417;c
       <div id="results" class="card-grid"></div>
     </div>
   </section>
+  <section class="field-notes" id="field-notes" aria-labelledby="field-title">
+    <div class="section-head">
+      <div><h2 id="field-title">Cislunar field notes</h2></div>
+      <p>Six topics on how people study, build, trade and govern between Earth and the Moon.</p>
+    </div>
+    <nav class="field-jump" id="field-jump" aria-label="Field note topics"></nav>
+    <div class="field-grid" id="field-topics"></div>
+  </section>
 </main>
 <footer><div class="shell"><span>Flight indicates flight heritage, including partial or unsuccessful missions. Scenario dates are illustrative.</span><a href="#top">Back to top ↑</a></div></footer>
 
@@ -691,6 +825,25 @@ dialog{border:1px solid #3a3d43;border-radius:15px 15px 0 0;background:#131417;c
 <dialog id="comparison" aria-labelledby="comparison-title" class="compare-dialog">
   <div class="drawer-head"><span class="mono">Comparison matrix</span><form method="dialog"><button class="square" aria-label="Close comparison"><svg class="icon"><use href="#icon-close"/></svg></button></form></div>
   <div id="comparison-content" class="drawer-body"></div>
+</dialog>
+
+<dialog id="quote-share" class="compare-dialog share-dialog" aria-labelledby="quote-share-title">
+  <div class="drawer-head">
+    <span id="quote-share-topic" class="mono">Atlas perspective</span>
+    <form method="dialog"><button class="square" aria-label="Close sharing"><svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg></button></form>
+  </div>
+  <div class="drawer-body">
+    <h2 id="quote-share-title">Share this quote</h2>
+    <blockquote id="quote-share-preview"></blockquote>
+    <div class="share-platforms" id="quote-platforms" aria-label="Share platforms"></div>
+    <p class="share-instructions">LinkedIn and Facebook share the link. Copy the quote to add its text to your post.</p>
+    <div class="share-tools">
+      <button type="button" class="market-action primary" id="quote-copy">Copy quote and link</button>
+      <button type="button" class="market-action" id="quote-native" hidden>More apps</button>
+    </div>
+    <p class="share-feedback" id="quote-feedback" role="status"></p>
+    <textarea class="share-copy-text" id="quote-copy-text" aria-label="Quote and link to copy" spellcheck="false" readonly hidden></textarea>
+  </div>
 </dialog>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -1341,8 +1494,8 @@ dialog{border:1px solid #3a3d43;border-radius:15px 15px 0 0;background:#131417;c
           "https://www.cnsa.gov.cn/english/n6465652/n6465653/c6812150/content.html"
         ],
         [
-          "NASA NSSDCA · Chang’e 6 mission record",
-          "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2024-083A"
+          "CNSA announcement via Xinhua · Chang’e 6 sample return",
+          "https://english.news.cn/20240628/4be0972f277c4b8eb3b0bf53e456052c/c.html"
         ]
       ],
       "image": "polar-habitat"
@@ -1993,7 +2146,283 @@ dialog{border:1px solid #3a3d43;border-radius:15px 15px 0 0;background:#131417;c
       "NASA · Artemis II",
       "https://www.nasa.gov/mission/artemis-ii/"
     ]
-  }
+  },
+  "fieldNotes": [
+    {
+      "id": "research",
+      "title": "Research",
+      "image": "mare-lander",
+      "metric": "10",
+      "measure": "NASA payloads delivered by Blue Ghost Mission 1",
+      "intro": "A lunar research program needs repeated chances to fly instruments, enough time to run them, and a reliable way to return their observations.",
+      "findings": [
+        {
+          "title": "One landing, many experiments",
+          "text": "Blue Ghost delivered 10 NASA science and technology instruments to Mare Crisium in March 2025. Firefly reported 346 hours of surface operations during lunar daylight.",
+          "sources": [
+            [
+              "NASA · Blue Ghost landing",
+              "https://www.nasa.gov/image-article/blue-ghost-lands-on-moon/"
+            ],
+            [
+              "Firefly · Mission 1 operations",
+              "https://fireflyspace.com/missions/blue-ghost-mission-1/"
+            ]
+          ]
+        },
+        {
+          "title": "Radio astronomy needs a quiet site",
+          "text": "LuSEE-Night is designed to test low-frequency radio astronomy on the lunar farside. The Moon shields the site from Earth’s radio emissions, while the experiment still needs power through lunar night and a relay to return data.",
+          "sources": [
+            [
+              "NASA and DOE · LuSEE-Night",
+              "https://www.nasa.gov/solar-system/nasa-department-of-energy-join-forces-on-innovative-lunar-experiment/"
+            ],
+            [
+              "Firefly · Farside mission plan",
+              "https://fireflyspace.com/missions/blue-ghost-mission-2/"
+            ]
+          ]
+        }
+      ],
+      "quotes": [
+        {
+          "id": "repeatable-experiments",
+          "text": "A landing opens the lab. A second flight lets you repeat the experiment."
+        },
+        {
+          "id": "data-return",
+          "text": "A lunar experiment has two deliveries. The instrument goes up and the evidence comes back."
+        }
+      ],
+      "focus": 19
+    },
+    {
+      "id": "science",
+      "title": "Science",
+      "image": "polar-map",
+      "metric": "1.94 kg",
+      "measure": "Farside material returned by Chang’e 6 in 2024",
+      "intro": "The Moon preserves a geological record of the early Solar System. Material from different sites can answer different questions about its history and resources.",
+      "findings": [
+        {
+          "title": "A detection tells you where to investigate",
+          "text": "NASA’s 2009 LCROSS impact sent material from the permanently shadowed Cabeus crater into sunlight. Observations confirmed water in the ejecta. Resource assessment still needs measurements of concentration, depth, and how much can be recovered across a site.",
+          "sources": [
+            [
+              "NASA Science · LCROSS mission",
+              "https://science.nasa.gov/mission/lcross/"
+            ],
+            [
+              "NASA Science · Lunar water and ice",
+              "https://science.nasa.gov/moon/moon-water-and-ices/"
+            ]
+          ]
+        },
+        {
+          "title": "The farside adds a new sample set",
+          "text": "CNSA reported that Chang’e 6 returned 1,935.3 grams from the lunar farside. Returning material lets multiple labs test the same samples and compare them with other lunar collections.",
+          "sources": [
+            [
+              "CNSA announcement via Xinhua · Sample mass",
+              "https://english.news.cn/20240628/4be0972f277c4b8eb3b0bf53e456052c/c.html"
+            ]
+          ]
+        }
+      ],
+      "quotes": [
+        {
+          "id": "ice-and-reserves",
+          "text": "An ice detection starts a survey. A reserve estimate takes a drill."
+        },
+        {
+          "id": "geological-record",
+          "text": "The Moon’s scientific value includes the geological history Earth has erased."
+        }
+      ],
+      "focus": 44
+    },
+    {
+      "id": "technology",
+      "title": "Technology",
+      "image": "lunar-relay",
+      "metric": "225,000 mi",
+      "measure": "Approximate Earth distance of LuGRE’s lunar surface navigation fix",
+      "intro": "A lunar service becomes useful to more missions when spacecraft can use the same signals and interfaces.",
+      "findings": [
+        {
+          "title": "Earth navigation signals reached the surface",
+          "text": "NASA and the Italian Space Agency’s LuGRE receiver used GPS and Galileo signals to produce a navigation fix on the Moon in March 2025. It demonstrated that a receiver could work at that site with the signals available during the test.",
+          "sources": [
+            [
+              "NASA · LuGRE surface fix",
+              "https://www.nasa.gov/directorates/somd/space-communications-navigation-program/nasa-successfully-acquires-gps-signals-on-moon/"
+            ]
+          ]
+        },
+        {
+          "title": "Shared interfaces and dedicated satellites",
+          "text": "LunaNet specifies interoperable communications, navigation, and information services. ESA’s Moonlight design calls for five satellites, one for communications and four for navigation, with an emphasis on south-pole coverage.",
+          "sources": [
+            [
+              "NASA · LunaNet specification",
+              "https://www.nasa.gov/directorates/somd/space-communications-navigation-program/lunanet-interoperability-specification/"
+            ],
+            [
+              "ESA · Moonlight constellation",
+              "https://www.esa.int/articles/esa-s-moonlight-programme-pioneering-the-path-for-lunar-exploration"
+            ]
+          ]
+        }
+      ],
+      "quotes": [
+        {
+          "id": "weak-signal",
+          "text": "A weak signal becomes infrastructure when different spacecraft can use it."
+        },
+        {
+          "id": "second-supplier",
+          "text": "Common interfaces give lunar missions a way to switch suppliers."
+        }
+      ],
+      "focus": 47
+    },
+    {
+      "id": "economics",
+      "title": "Economics",
+      "image": "depot",
+      "metric": "$10B",
+      "measure": "Combined maximum for the ten-year CLPS 2 framework",
+      "intro": "Customers can buy delivery, connectivity, power, and mobility as services. The near-term evidence comes from procurement announcements and the orders that follow.",
+      "findings": [
+        {
+          "title": "A procurement ceiling sets ordering capacity",
+          "text": "NASA raised the shared CLPS 1.0 ceiling to $4.2 billion in November 2026 and announced a $10 billion ceiling for CLPS 2 across multiple suppliers over ten years. Actual revenue depends on competed orders and performance.",
+          "sources": [
+            [
+              "NASA · November 2026 Moon Base awards",
+              "https://www.nasa.gov/news-release/nasa-awards-moon-base-transportation-technology-science-projects/"
+            ]
+          ]
+        },
+        {
+          "title": "The broader space economy includes Earth services",
+          "text": "The Bureau of Economic Analysis measured $142.5 billion of U.S. space-economy GDP in 2023, including activities such as satellite services and ground equipment. To size lunar demand, track who repeatedly pays to move payloads, relay data, and keep equipment operating near the Moon.",
+          "sources": [
+            [
+              "BEA · U.S. space-economy statistics, 2012–2023",
+              "https://apps.bea.gov/scb/issues/2025/03-march/0325-space-economy.htm"
+            ]
+          ]
+        }
+      ],
+      "quotes": [
+        {
+          "id": "repeat-payloads",
+          "text": "Count repeat payloads before you count the billions."
+        },
+        {
+          "id": "buying-capacity",
+          "text": "A ceiling measures what a buyer could order. Repeat orders measure demand."
+        }
+      ],
+      "focus": 48
+    },
+    {
+      "id": "demographics",
+      "title": "Demographics",
+      "image": "earthset",
+      "metric": "28",
+      "measure": "Unique lunar travelers across Apollo and Artemis II, through April 2026",
+      "intro": "So far, the human record near the Moon is a record of crews and visits. Duration, nationality, and time spent on the surface tell different stories.",
+      "findings": [
+        {
+          "title": "Count people and repeat trips separately",
+          "text": "Nine crewed Apollo missions went to the Moon with 27 crew seats filled by 24 people. Twelve walked on the surface. Artemis II added four new lunar travelers in 2026, three from NASA and one from the Canadian Space Agency.",
+          "sources": [
+            [
+              "NASA · Apollo mission and crew rosters",
+              "https://www.nasa.gov/the-apollo-program/"
+            ],
+            [
+              "NASA · Artemis II crew and mission",
+              "https://www.nasa.gov/mission/artemis-ii/"
+            ]
+          ]
+        },
+        {
+          "title": "Measure time and support needs",
+          "text": "Artemis II lasted 9 days, 1 hour, and 32 minutes from launch to splashdown. For surface bases, crew-days help size food, life support, medical coverage, and return capacity. NASA’s Moon Base plan calls for building up to longer surface stays in phases.",
+          "sources": [
+            [
+              "NASA · Artemis II duration",
+              "https://www.nasa.gov/mission/artemis-ii/"
+            ],
+            [
+              "NASA · Moon Base phases",
+              "https://www.nasa.gov/reference/moonbase-about/"
+            ]
+          ]
+        }
+      ],
+      "quotes": [
+        {
+          "id": "time-to-stay",
+          "text": "A flight counts people. A base counts how long they can stay."
+        },
+        {
+          "id": "supply-delay",
+          "text": "Staffing the Moon begins with keeping a crew healthy through the next supply delay."
+        }
+      ],
+      "focus": 44
+    },
+    {
+      "id": "politics",
+      "title": "Politics",
+      "image": "polar-habitat",
+      "metric": "Article II",
+      "measure": "Outer Space Treaty rule on national appropriation",
+      "intro": "Lunar politics operates at two levels. International law sets broad obligations, while partners negotiate how to share infrastructure and coordinate real operations.",
+      "findings": [
+        {
+          "title": "The treaty sets a common legal baseline",
+          "text": "Article II bars national appropriation of the Moon. Article VI makes states responsible for national space activity and requires authorization and continuing supervision of nongovernmental activities.",
+          "sources": [
+            [
+              "UNOOSA · Outer Space Treaty",
+              "https://www.unoosa.org/unoosa/en/ourwork/spacelaw/treaties/outerspacetreaty.html"
+            ]
+          ]
+        },
+        {
+          "title": "Operating arrangements shape practical access",
+          "text": "The Artemis Accords describe temporary safety zones for notifying and coordinating operations. CNSA’s ILRS guide describes a separate international research-station partnership. Landing procedures, data-sharing rules, and connection standards will affect how easily missions can work across programs.",
+          "sources": [
+            [
+              "NASA · Artemis Accords",
+              "https://www.nasa.gov/artemis-accords/"
+            ],
+            [
+              "CNSA · ILRS partnership guide",
+              "https://www.cnsa.gov.cn/english/n6465652/n6465653/c6812150/content.html"
+            ]
+          ]
+        }
+      ],
+      "quotes": [
+        {
+          "id": "access-rules",
+          "text": "Rules for getting to the Moon can shape access as much as rockets do."
+        },
+        {
+          "id": "arrive-second",
+          "text": "The operating rules matter most to the missions that arrive second."
+        }
+      ],
+      "focus": 52
+    }
+  ]
 }
 </script>
 
@@ -2247,8 +2676,8 @@ dialog{border:1px solid #3a3d43;border-radius:15px 15px 0 0;background:#131417;c
           "https://www.cnsa.gov.cn/english/n6465652/n6465653/c6812150/content.html"
         ],
         [
-          "NASA NSSDCA · Chang’e 6",
-          "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2024-083A"
+          "CNSA announcement via Xinhua · Chang’e 6 sample return",
+          "https://english.news.cn/20240628/4be0972f277c4b8eb3b0bf53e456052c/c.html"
         ]
       ]
     }
@@ -3509,6 +3938,165 @@ selectZone(settings.selectedZone, false);
 renderCatalog();
 positionPulses();
 updateAnimation();
+
+// Field notes and quote-level permalinks.
+const fieldNotes = data.fieldNotes;
+const fieldTopics = $('#field-topics');
+const fieldNoteById = new Map(fieldNotes.map(topic => [topic.id, topic]));
+const fieldSelection = new Map();
+const publicAtlas = $('link[rel="canonical"]').href;
+const quoteShare = $('#quote-share');
+const quoteFeedback = $('#quote-feedback');
+const quoteCopyText = $('#quote-copy-text');
+const nativeQuoteButton = $('#quote-native');
+const quoteAnchor = (topic, quote) => `quote-${topic.id}-${quote.id}`;
+const quoteRoutes = new Map(fieldNotes.flatMap(topic => topic.quotes.map((quote, index) =>
+  [quoteAnchor(topic, quote), { topic, index }]
+)));
+let activeQuoteShare = null;
+
+function fieldMedia(topic) {
+  const photo = topic.image === 'polar-map'
+    ? { src:zonePreviews.pole, alt:data.photos.pole[1], credit:'Lunar south pole · NASA / GSFC / ASU', page:data.photos.pole[3] }
+    : catalogImages[topic.image];
+  const credit = escapeHTML(photo.credit || 'Concept illustration');
+  const caption = photo.page
+    ? `<a href="${escapeHTML(photo.page)}" target="_blank" rel="noopener noreferrer">${credit}</a>`
+    : credit;
+  return `<figure class="field-media">
+    <img src="${photo.src}" alt="${escapeHTML(photo.alt)}" loading="lazy" decoding="async" style="object-position:center ${topic.focus}%">
+    <p class="field-metric"><strong>${escapeHTML(topic.metric)}</strong><span>${escapeHTML(topic.measure)}</span></p>
+    <figcaption class="media-caption mono">${caption}</figcaption>
+  </figure>`;
+}
+
+$('#field-jump').innerHTML = fieldNotes.map(topic =>
+  `<a href="#field-${topic.id}">${escapeHTML(topic.title)}</a>`
+).join('');
+
+fieldTopics.innerHTML = fieldNotes.map(topic => `
+  <section class="field-topic" id="field-${topic.id}" aria-labelledby="field-title-${topic.id}">
+    ${fieldMedia(topic)}
+    <div class="field-content">
+      <h3 id="field-title-${topic.id}">${escapeHTML(topic.title)}</h3>
+      <p>${escapeHTML(topic.intro)}</p>
+      <ul class="field-findings">${topic.findings.map(finding => `<li>
+        <h4>${escapeHTML(finding.title)}</h4>
+        <p>${escapeHTML(finding.text)}</p>
+        <div class="field-references">${finding.sources.map(([name, url]) => `
+          <a href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(name)} ${icon('external')}</a>`
+        ).join('')}</div>
+      </li>`).join('')}</ul>
+    </div>
+    <div class="field-quote" id="field-quote-${topic.id}">
+      <span class="mono">Atlas perspective</span>
+      <blockquote aria-live="polite"></blockquote>
+      <div class="field-quote-actions">
+        <button class="market-action primary" type="button" data-share-topic="${topic.id}" aria-label="Share quote about ${escapeHTML(topic.title.toLowerCase())}">Share quote</button>
+        <button class="quote-next" type="button" data-next-topic="${topic.id}" aria-label="Next quote about ${escapeHTML(topic.title.toLowerCase())}">Next quote ${icon('arrow')}</button>
+      </div>
+    </div>
+  </section>`
+).join('');
+
+function selectFieldQuote(topic, index) {
+  const quote = topic.quotes[index];
+  fieldSelection.set(topic.id, index);
+  const panel = $(`#field-quote-${topic.id}`);
+  const text = $('blockquote', panel);
+  text.id = quoteAnchor(topic, quote);
+  text.textContent = `“${quote.text}”`;
+}
+
+function followQuotePermalink() {
+  const hash = location.hash;
+  const route = quoteRoutes.get(hash.slice(1));
+  if (!route) return;
+  selectFieldQuote(route.topic, route.index);
+  requestAnimationFrame(() => {
+    if (location.hash === hash) $(`#field-quote-${route.topic.id}`).scrollIntoView({ block:'center', behavior:'instant' });
+  });
+}
+
+function socialUrl(base, params) {
+  const url = new URL(base);
+  for (const [key, value] of Object.entries(params)) url.searchParams.set(key, value);
+  return url.href;
+}
+
+function openQuoteShare(topic) {
+  const quote = topic.quotes[fieldSelection.get(topic.id)];
+  const url = new URL(publicAtlas);
+  url.hash = quoteAnchor(topic, quote);
+  const attribution = `“${quote.text}” — Cislunar Atlas`;
+  const copyText = `${attribution}\n${url.href}`;
+  const platforms = [
+    ['X', 'https://twitter.com/intent/tweet', { text:attribution, url:url.href }],
+    ['LinkedIn', 'https://www.linkedin.com/sharing/share-offsite/', { url:url.href }],
+    ['Bluesky', 'https://bsky.app/intent/compose', { text:copyText }],
+    ['Threads', 'https://www.threads.com/intent/post', { text:copyText }],
+    ['Facebook', 'https://www.facebook.com/sharer/sharer.php', { u:url.href }],
+    ['WhatsApp', 'https://wa.me/', { text:copyText }]
+  ];
+  activeQuoteShare = { url:url.href, attribution, copyText };
+  $('#quote-share-topic').textContent = `${topic.title} · Atlas perspective`;
+  $('#quote-share-preview').textContent = `“${quote.text}”`;
+  $('#quote-platforms').innerHTML = platforms.map(([name, base, params]) => `
+    <a class="market-action" href="${escapeHTML(socialUrl(base, params))}" target="_blank" rel="noopener noreferrer">
+      ${name} ${icon('external')}
+    </a>`
+  ).join('');
+  quoteFeedback.textContent = '';
+  quoteCopyText.value = copyText;
+  quoteCopyText.hidden = true;
+  nativeQuoteButton.hidden = typeof navigator.share !== 'function';
+  quoteShare.showModal();
+}
+
+fieldTopics.addEventListener('click', event => {
+  const next = event.target.closest('[data-next-topic]');
+  const share = event.target.closest('[data-share-topic]');
+  if (next) {
+    const topic = fieldNoteById.get(next.dataset.nextTopic);
+    selectFieldQuote(topic, (fieldSelection.get(topic.id) + 1) % topic.quotes.length);
+  }
+  if (share) openQuoteShare(fieldNoteById.get(share.dataset.shareTopic));
+});
+
+$('#quote-copy').addEventListener('click', async () => {
+  const current = activeQuoteShare;
+  if (!current) return;
+  try {
+    await navigator.clipboard.writeText(current.copyText);
+    if (quoteShare.open && activeQuoteShare === current) {
+      quoteCopyText.hidden = true;
+      quoteFeedback.textContent = 'Quote and link copied.';
+    }
+  } catch {
+    if (quoteShare.open && activeQuoteShare === current) {
+      quoteFeedback.textContent = 'Select and copy the quote and link below.';
+      quoteCopyText.hidden = false;
+      quoteCopyText.focus();
+      quoteCopyText.select();
+    }
+  }
+});
+
+nativeQuoteButton.addEventListener('click', async () => {
+  const current = activeQuoteShare;
+  if (!current) return;
+  try {
+    await navigator.share({ title:'Cislunar Atlas', text:current.attribution, url:current.url });
+  } catch (error) {
+    if (error.name !== 'AbortError' && quoteShare.open && activeQuoteShare === current) {
+      quoteFeedback.textContent = 'Choose a platform above or copy the quote and link.';
+    }
+  }
+});
+
+for (const topic of fieldNotes) selectFieldQuote(topic, 0);
+window.addEventListener('hashchange', followQuotePermalink);
+followQuotePermalink();
 </script>
 </body>
 </html>
